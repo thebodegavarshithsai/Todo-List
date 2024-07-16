@@ -140,7 +140,7 @@ function App () {
             <button
               type="button"
               onClick={handleAddTodo}
-              className="primaryBtn"
+              className="primaryBtn" title='Add'
             >
               Add
             </button>
