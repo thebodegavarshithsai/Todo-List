@@ -172,7 +172,7 @@ function App () {
                   <input placeholder='Updated Title' 
                   onChange={(e)=>handleUpdateTitle(e.target.value)} 
                   value={currentEditedItem.title}  />
-                  <textarea placeholder='Updated Title' 
+                  <textarea placeholder='Updated Description' 
                   rows={4}
                   onChange={(e)=>handleUpdateDescription(e.target.value)} 
                   value={currentEditedItem.description}  />
@@ -187,14 +187,14 @@ function App () {
                  ) 
               }else{
                 return (
-                  <center>
+                  
                   <div className="todo-list-item" key={index}>
                     <div>
                       <h3>{item.title}</h3>
                       <p>{item.description}</p>
                     </div>
   
-                    <div>
+                    <div className='allIcons'>
                       <AiOutlineDelete
                         className="icon"
                         onClick={() => handleDeleteTodo (index)}
@@ -211,7 +211,7 @@ function App () {
                     </div>
                   
                   </div>
-                  </center>
+                  
                 );
               }
               
