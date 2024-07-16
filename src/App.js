@@ -17,16 +17,20 @@ function App () {
       title: newTitle,
       description: newDescription,
     };
-
+    if((newTodoItem.title&&newTodoItem.description)===""){
+      alert("Enter Title and Description !! ")
+    }
+    else{
     let updatedTodoArr = [...allTodos];
     updatedTodoArr.push (newTodoItem);
     setTodos (updatedTodoArr);
     localStorage.setItem ('todolist', JSON.stringify (updatedTodoArr));
+    }
   };
 
   const handleDeleteTodo = index => {
     let reducedTodo = [...allTodos];
-    reducedTodo.splice (index);
+    reducedTodo.splice (index,1);
 
     localStorage.setItem ('todolist', JSON.stringify (reducedTodo));
     setTodos (reducedTodo);
@@ -60,7 +64,7 @@ function App () {
 
   const handleDeleteCompletedTodo = index => {
     let reducedTodo = [...completedTodos];
-    reducedTodo.splice (index);
+    reducedTodo.splice (index,1);
 
     localStorage.setItem ('completedTodos', JSON.stringify (reducedTodo));
     setCompletedTodos (reducedTodo);
@@ -183,6 +187,7 @@ function App () {
                  ) 
               }else{
                 return (
+                  <center>
                   <div className="todo-list-item" key={index}>
                     <div>
                       <h3>{item.title}</h3>
@@ -204,8 +209,9 @@ function App () {
                         onClick={() => handleEdit (index,item)}
                         title="Edit?" />
                     </div>
-  
+                  
                   </div>
+                  </center>
                 );
               }
               
