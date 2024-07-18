@@ -107,6 +107,8 @@ function App () {
       let newToDo = [...allTodos];
       newToDo[currentEdit] = currentEditedItem;
       setTodos(newToDo);
+      localStorage.setItem('todolist', JSON.stringify(newToDo));
+
       setCurrentEdit("");
   }
 
