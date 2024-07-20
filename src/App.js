@@ -26,7 +26,10 @@ function App () {
     setTodos (updatedTodoArr);
     localStorage.setItem ('todolist', JSON.stringify (updatedTodoArr));
     }
+    setNewTitle("");
+    setNewDescription("")
   };
+
 
   const handleDeleteTodo = index => {
     let reducedTodo = [...allTodos];
@@ -120,6 +123,7 @@ function App () {
 
       <div className="todo-wrapper">
         <div className="todo-input">
+        <form className="todo-input">
           <div className="todo-input-item">
             <label>Title</label>
             <input
@@ -140,13 +144,14 @@ function App () {
           </div>
           <div className="todo-input-item">
             <button
-              type="button"
+              type="submit"
               onClick={handleAddTodo}
               className="primaryBtn" title='Add'
             >
               Add
             </button>
           </div>
+          </form>
         </div>
 
         <div className="btn-area">
@@ -170,6 +175,7 @@ function App () {
             allTodos.map ((item, index) => {
               if(currentEdit===index){
                  return(
+                  <form className='edit__wrapper' onSubmit={handleUpdateToDo}>
                   <div className='edit__wrapper' key={index}>
                   <input placeholder='Updated Title' 
                   onChange={(e)=>handleUpdateTitle(e.target.value)} 
@@ -186,6 +192,7 @@ function App () {
               Update
             </button>
               </div> 
+              </form>
                  ) 
               }else{
                 return (
